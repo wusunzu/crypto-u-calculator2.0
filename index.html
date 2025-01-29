@@ -1,0 +1,144 @@
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline';">
+  <title>Crypto-U本位永續合約計算器</title>
+  <link href="style.css" rel="stylesheet">
+</head>
+<body>
+  <div class="app-container">
+    <div class="left-panel">
+      <h1>Crypto-U本位永續合約計算器</h1>
+      
+      <div class="settings-grid">
+        <div class="settings-group">
+          <div class="input-row">
+            <div class="input-group">
+              <label>保證金模式</label>
+              <select name="marginMode" id="marginMode" class="select-input">
+                <option value="cross">全倉模式</option>
+                <option value="isolated">逐倉模式</option>
+              </select>
+            </div>
+
+            <div class="input-group">
+              <label>委託類型</label>
+              <select name="orderType" id="orderType" class="select-input">
+                <option value="limit">限價委託</option>
+                <option value="market">市價委託</option>
+              </select>
+            </div>
+
+            <div class="input-group">
+              <label>交易方向</label>
+              <select name="tradeType" id="tradeType" class="select-input">
+                <option value="long" class="long-option">買入開多</option>
+                <option value="short" class="short-option">賣出開空</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="input-row">
+            <div class="input-group">
+              <label>開倉價格 (USDT)</label>
+              <input type="number" id="entryPrice" step="0.0001" placeholder="輸入開倉價格" required>
+            </div>
+
+            <div class="input-group">
+              <label>可用保證金 (USDT)</label>
+              <input type="number" id="availableMargin" step="0.01" placeholder="輸入可用保證金" required>
+            </div>
+
+            <div class="input-group">
+              <label>倉位大小 (USDT)</label>
+              <input type="number" id="position" placeholder="輸入倉位金額" required>
+            </div>
+          </div>
+
+          <div class="input-row">
+            <div class="input-group">
+              <label>槓桿倍數 (1-125倍)</label>
+              <input type="number" id="leverage" min="1" max="125" value="50" required>
+            </div>
+
+            <div class="input-group">
+              <label>止盈價格 (USDT)</label>
+              <input type="number" id="takeProfit" step="0.0001" placeholder="輸入止盈價格">
+            </div>
+
+            <div class="input-group">
+              <label>止損價格 (USDT)</label>
+              <input type="number" id="stopLoss" step="0.0001" placeholder="輸入止損價格">
+            </div>
+          </div>
+        </div>
+
+        <button onclick="calculate()" class="calculate-btn">計算交易詳情</button>
+      </div>
+    </div>
+
+    <div class="right-panel">
+      <div class="results-container">
+        <div class="result-card">
+          <h3>保證金信息</h3>
+          <div class="result-item">
+            <span>初始保證金:</span>
+            <span id="initialMargin">0.00</span>
+          </div>
+          <div class="result-item">
+            <span>開倉手續費:</span>
+            <span id="entryFee">0.0000</span>
+          </div>
+          <div class="result-item">
+            <span>預估強平價格:</span>
+            <span id="liquidationPrice">0.0000</span>
+          </div>
+          <div class="result-item">
+            <span>風險回報比:</span>
+            <span id="riskRewardRatio">0.00</span>
+          </div>
+        </div>
+
+        <div class="result-card warning-card">
+          <h3>保證金報警</h3>
+          <div id="liquidationWarning" class="warning-message"></div>
+        </div>
+
+        <div class="result-card">
+          <h3>止盈信息</h3>
+          <div class="result-item profit">
+            <span>止盈收益:</span>
+            <span id="takeProfitAmount">0.00</span>
+          </div>
+          <div class="result-item">
+            <span>漲跌幅:</span>
+            <span id="takeProfitPercentage">0.00%</span>
+          </div>
+          <div class="result-item">
+            <span>止盈手續費:</span>
+            <span id="takeProfitFee">0.0000</span>
+          </div>
+        </div>
+
+        <div class="result-card">
+          <h3>止損信息</h3>
+          <div class="result-item loss">
+            <span>止損虧損:</span>
+            <span id="stopLossAmount">0.00</span>
+          </div>
+          <div class="result-item">
+            <span>漲跌幅:</span>
+            <span id="stopLossPercentage">0.00%</span>
+          </div>
+          <div class="result-item">
+            <span>止損手續費:</span>
+            <span id="stopLossFee">0.0000</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="calculator.js"></script>
+</body>
+</html>
