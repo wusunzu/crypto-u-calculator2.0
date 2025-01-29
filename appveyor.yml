@@ -14,7 +14,7 @@ artifacts:
 
 deploy:
   provider: github
-  auth_token: %GH_TOKEN%
-  repo: your-username/crypto-u-calculator2.0
+  auth_token: "%GH_TOKEN%"  # 使用双引号包裹环境变量
+  repo: your-username/crypto-u-calculator2.0  # 替换为你的 GitHub 用户名和仓库名称
   on:
     branch: main
