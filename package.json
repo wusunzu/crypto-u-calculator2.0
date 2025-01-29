@@ -15,7 +15,7 @@
   },
   "build": {
     "appId": "com.binance.calculator",
-    "productName": "Binance Futures Calculator",
+    "productName": "Crypto-U-Futures Calculator",
     "directories": {
       "output": "dist"
     },
@@ -34,7 +34,9 @@
       "!**/{npm-debug.log,yarn.lock,.yarn-integrity,.yarn-metadata.json}"
     ],
     "win": {
-      "target": "nsis"
+      "target": "nsis",
+      "icon": "build/icon.ico",
+      "artifactName": "Crypto-U-Futures Calculator Setup ${version}.exe"
     },
     "mac": {
       "target": "dmg"
