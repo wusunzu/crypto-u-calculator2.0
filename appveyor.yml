@@ -1,0 +1,14 @@
+version: 1.0.{build}
+
+image: Visual Studio 2022
+
+platform:
+  - x64
+
+build_script:
+  - npm install
+  - npm run build
+
+artifacts:
+  - path: dist\*.exe
+    name: binance-calculator
