@@ -1,5 +1,4 @@
 version: 1.0.{build}
-
 image: Visual Studio 2022
 
 platform:
@@ -11,4 +10,11 @@ build_script:
 
 artifacts:
   - path: dist\*.exe
-    name: binance-calculator
+    name: crypto-u-futures-calculator
+
+deploy:
+  provider: github
+  auth_token: %GH_TOKEN%
+  repo: your-username/crypto-u-calculator2.0
+  on:
+    branch: main
