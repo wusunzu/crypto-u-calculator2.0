@@ -14,7 +14,7 @@
     "electron-builder": "^24.4.0"
   },
   "dependencies": {
-    // 其他生产依赖
+    // 如果有其他依赖项，应该在这里列出
   },
   "build": {
     "appId": "com.crypto.ufutures.calculator",
@@ -49,3 +49,4 @@
     }
   }
 }
+
