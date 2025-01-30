@@ -12,8 +12,3 @@ artifacts:
   - path: dist/*.exe  # 使用斜杠分隔符
     name: crypto-u-futures-calculator
 
-deploy:
-  provider: github
-  repo: wusunzu/crypto-u-calculator2.0  # 请替换为你的实际 GitHub 用户名和仓库名
-  on:
-    branch: main
