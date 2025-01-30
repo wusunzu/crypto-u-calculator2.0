@@ -1,20 +1,17 @@
 {
   "name": "crypto-u-futures-calculator",
   "version": "1.0.0",
-  "description": "Crypto U Futures Calculator Desktop App",
+  "description": "Crypto-U Futures Calculator Desktop App",
   "main": "main.js",
   "scripts": {
     "start": "electron .",
     "build": "electron-builder"
   },
-  "author": "Your Name <your-email@example.com>",
+  "author": "",
   "license": "ISC",
   "devDependencies": {
     "electron": "^25.0.0",
     "electron-builder": "^24.4.0"
-  },
-  "dependencies": {
-    // 如果有其他依赖项，应该在这里列出
   },
   "build": {
     "appId": "com.crypto.ufutures.calculator",
