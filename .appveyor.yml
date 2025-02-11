@@ -1,0 +1,14 @@
+version: 1.0.{build}
+
+image: Visual Studio 2019
+
+install:
+  - ps: Install-Product node 18
+  - npm install
+
+build_script:
+  - npm run build
+
+artifacts:
+  - path: dist\**\*   # 确保把 dist 目录中的所有文件上传为 Artifacts
+    name: Crypto-U-Calculator-Installer
