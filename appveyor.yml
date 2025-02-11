@@ -1,0 +1,27 @@
+version: 1.0.{build} # 自动生成的版本号
+
+# 指定构建环境 - Windows Server
+image: Visual Studio 2022
+
+# 构建配置
+platform:
+  - x64
+
+# 缓存 node_modules 文件夹以加快构建速度
+cache:
+  - node_modules
+
+# 配置安装的工具
+install:
+  - ps: Install-Product node 18 x64
+  - npm install
+  - npm install electron-builder --save-dev
+
+# 构建脚本
+build_script:
+  - npm run build
+
+# 配置 Artifacts（生成的文件）
+artifacts:
+  - path: dist\*
+    name: BinanceCalculator
