@@ -20,10 +20,10 @@
     "appId": "com.crypto-u.calculator",
     "productName": "Crypto-U Futures Calculator",
     "directories": {
-      "output": "dist"
+      "output": "dist"  // 确保构建产物输出到 dist 目录
     },
     "files": [
-      "**/*",
+      "**/*",  // 保证将所有文件包含在内
       "!**/node_modules/*/{CHANGELOG.md,README.md,README,readme.md,readme}",
       "!**/node_modules/*/{test,__tests__,tests,powered-test,example,examples}",
       "!**/node_modules/*.d.ts",
@@ -37,13 +37,16 @@
       "!**/{npm-debug.log,yarn.lock,.yarn-integrity,.yarn-metadata.json}"
     ],
     "win": {
-      "target": "nsis"
+      "target": "nsis",  // Windows 平台使用 nsis 作为构建目标
+      "icon": "icon.ico"  // 添加 Windows 图标（如果有）
     },
     "mac": {
-      "target": "dmg"
+      "target": "dmg",  // macOS 平台使用 dmg 作为构建目标
+      "icon": "icon.icns"  // 添加 macOS 图标（如果有）
     },
     "linux": {
-      "target": "AppImage"
+      "target": "AppImage",  // Linux 平台使用 AppImage
+      "icon": "icon.png"  // 添加 Linux 图标（如果有）
     }
   }
 }
